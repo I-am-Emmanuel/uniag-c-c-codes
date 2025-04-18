@@ -3,45 +3,509 @@
 using namespace std;
 
 
-// encapsulation
-class Rectangle{
-  private : int length; int breadth;
+class Maths{
+    public: 
+        int add(int a, int b){
+            return a + b;
+        }
 
-  // public : Rectangle(int len, int brth) : length(len), breadth(brth){
+        double add(double a, double b){
+            return a + b;
+        }
 
-  // };
+        int add(int a, int b, int c){
+            return a + b + c;
+        }
 
-  public :
-  void setLength(int len){
-    length = len;
-  }
-  void setBreadth(int brth){
-    breadth = brth;
-  }
-
-  int getLength(){
-    return length;
-  }
-
-  int getBreadth(){
-    return breadth;
-  }
-
-  int getArea(){
-    return length * breadth;
-  }
 };
 
 int main(){
-  Rectangle rec1;
-
-  rec1.setLength(7);
-  cout<<rec1.getLength()<<endl;
-  rec1.setBreadth(3);
-  cout<<rec1.getBreadth()<<endl;
-  cout<<rec1.getArea()<<endl;
-  return 0;
+    Maths m;
+    cout<<m.add(10,20)<<endl;
+    cout<<m.add(10.9,20.1)<<endl;
+    cout<<m.add(10,20,10);
 }
+
+// class Animals{
+//     public : virtual void speak(){
+//         cout <<"Animal sound!"<<endl;
+//     }
+// };
+
+// class Dogs: public Animals{
+
+//     public: void speak() override{
+//         cout<<"Woof!"<<endl;
+//     }
+// };
+
+// class Cats: public Animals{
+//     public: void speak() override{
+//         cout<<"Meow!"<<endl;
+//     }
+// };
+
+// int main(){
+//     Animals *dog = new Dogs;
+//     Animals *cat = new Cats;
+
+//     cat->speak();
+//     dog->speak();
+
+//     delete cat;
+//     delete dog;
+
+//     return 0;
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// class Animal {
+// public:
+//     // Virtual function (can be overridden)
+//     virtual void speak() {
+//         cout << "Animal sound!" << endl;
+//     }
+// };
+
+// class Dog : public Animal {
+// public:
+//     // Override speak()
+//     void speak() override {
+//         cout << "Woof!" << endl;
+//     }
+// };
+
+// class Cat : public Animal {
+// public:
+//     // Override speak()
+//     void speak() override {
+//         cout << "Meow!" << endl;
+//     }
+// };
+
+// int main() {
+//     Animal *animal1 = new Dog();  // Pointer of base class, object of derived
+//     Animal *animal2 = new Cat();
+
+//     animal1->speak();  // Calls Dog's speak() (not Animal's)
+//     animal2->speak();  // Calls Cat's speak()
+
+//     delete animal1;
+//     delete animal2;
+
+//     return 0;
+// }
+
+// // Virtual Inheritance
+// // base class with a speciesName member variable
+// class Animal {
+// private:
+//     string species_name;
+
+// public:
+
+//     // constructor that accepts 
+//     // a species name for initialization
+//     Animal(const string& name) : species_name(name) {
+//         cout << "Animal constructor called" << endl;
+//     }
+
+//     void show_species() const {
+//         cout << "This animal belongs to the species: " << species_name << endl;
+//     }
+// };
+
+// // WingedAnimal class with virtual inheritance from Animal
+// class WingedAnimal : virtual public Animal {
+// public:
+//     // constructor that initializes 
+//     // the Animal part of WingedAnimal
+//     WingedAnimal(const string& name) : Animal(name) {
+//         cout << "WingedAnimal constructor called" << endl;
+//     }
+// };
+
+// // Mammal class with virtual inheritance from Animal
+// class Mammal : virtual public Animal {
+// public:
+//     // constructor that initializes 
+//     // the Animal part of Mammal
+//     Mammal(const string& name) : Animal(name) {
+//         cout << "Mammals constructor called" << endl;
+//     }
+// };
+
+// // Bat class inherits from WingedAnimal and Mammal
+// class Bat : public WingedAnimal, public Mammal {
+// public:
+//     // Bat constructor
+//     // note that Animal's constructor will only be called once
+//     // due to virtual inheritance.
+//     Bat() : Animal("Bat"), WingedAnimal("Bat"), Mammal("Bat") {
+//     }
+
+//     void show_info() {
+//         cout << endl << "It's a unique animal! Here are some details:" << endl;
+        
+//           // show the species_name
+//           // demonstrating the shared member variable
+//         show_species();
+//     }
+// };
+
+// int main() {
+//     Bat my_bat;
+//     my_bat.show_info();
+//     return 0;
+// }
+
+
+
+// // Example 3: C++ private Inheritance
+// // C++ program to demonstrate the working of private inheritance
+// class Base {
+//   private:
+//     int pvt = 1;
+
+//   protected:
+//     int prot = 2;
+
+//   public:
+//     int pub = 3;
+
+//     // function to access private member
+//     int getPVT() {
+//       return pvt;
+//     }
+// };
+
+// class PrivateDerived : private Base {
+//   public:
+//     // function to access protected member from Base
+//     int getProt() {
+//       return prot;
+//     }
+
+//     // function to access private member
+//     int getPub() {
+//       return pub;
+//     }
+// };
+
+// int main() {
+//   PrivateDerived object1;
+//   cout << "Private cannot be accessed." << endl;
+//   cout << "Protected = " << object1.getProt() << endl;
+//   cout << "Public = " << object1.getPub() << endl;
+//   return 0;
+// }
+
+
+
+// // C++ program to demonstrate the working of protected inheritance
+
+// class Base {
+//   private:
+//     int pvt = 1;
+
+//   protected:
+//     int prot = 2;
+
+//    public:
+//     int pub = 3;
+
+//     // function to access private member
+//     int getPVT() {
+//       return pvt;
+//     }
+// };
+
+// class ProtectedDerived : protected Base {
+//   public:
+//     // function to access protected member from Base
+//     int getProt() {
+//       return prot;
+//     }
+
+//     // function to access public member from Base
+//     int getPub() {
+//       return pub;
+//     }
+// };
+
+// int main() {
+//   ProtectedDerived object1;
+//   cout << "Private cannot be accessed." << endl;
+//   cout << "Protected = " << object1.getProt() << endl;
+//   cout << "Public = " << object1.getPub() << endl;
+//   return 0;
+// }
+
+
+
+
+// // C++ program to demonstrate the working of public inheritance
+
+// class Base {
+//   private:
+//     int pvt = 1;
+
+//   protected:
+//     int prot = 2;
+
+//   public:
+//     int pub = 3;
+
+//     // function to access private member
+//     int getPVT() {
+//       return pvt;
+//     }
+// };
+
+// class PublicDerived : public Base {
+//   public:
+//     // function to access protected member from Base
+//     int getProt() {
+//       return prot;
+//     }
+// };
+
+// int main() {
+//   PublicDerived object1;
+//   cout << "Private = " << object1.getPVT() << endl;
+//   cout << "Protected = " << object1.getProt() << endl;
+//   cout << "Public = " << object1.pub << endl;
+//   return 0;
+// }
+
+
+// // base class
+// class Animal {
+
+//   private:
+//    string color;
+
+//   protected:
+//    string type;
+
+//   public:
+//    void eat() {
+//        cout << "I can eat!" << endl;
+//    }
+
+//    void sleep() {
+//        cout << "I can sleep!" << endl;
+//    }
+
+//    void setColor(string clr) {
+//        color = clr;
+//    }
+
+//    string getColor() {
+//        return color;
+//    }
+// };
+
+// // derived class
+// class Dog : public Animal {
+
+//   public:
+//    void setType(string tp) {
+//        type = tp;
+//    }
+
+//    void displayInfo(string c) {
+//        cout << "I am a " << type << endl;
+//        cout << "My color is " << c << endl;
+//    }
+
+//    void bark() {
+//        cout << "I can bark! Woof woof!!" << endl;
+//    }
+// };
+
+// int main() {
+//    // Create object of the Dog class
+//    Dog dog1;
+
+//    // Calling members of the base class
+//    dog1.eat();
+//    dog1.sleep();
+//    dog1.setColor("black");
+
+//    // Calling member of the derived class
+//    dog1.bark();
+//    dog1.setType("mammal");
+
+//    // Using getColor() of dog1 as argument
+//    // getColor() returns string data
+//    dog1.displayInfo(dog1.getColor());
+
+//    return 0;
+// }
+
+
+// class Animal{
+
+//   public: void sleep(){
+//     cout<<"I am sleeping"<<endl;
+//   }
+//   public: void eat(){
+//     cout<<"I am eating"<<endl;
+//   }
+
+// };
+
+// class Dog : public Animal{
+//   public : string speak(string action){
+//     if (action == "happy"){
+//       return "whinning";
+//     } else if (action == "angry")
+
+//     {
+//       return "backing";
+//     }
+    
+//   }
+// };
+
+// int main(){
+//   Dog dog1;
+//   dog1.eat();
+//   dog1.sleep();
+//   string action;
+//   cout<<"Enter dog word action: ";
+//   cin>>action;
+//   cout<<dog1.speak(action);
+
+// }
+
+// class ClassB;
+
+// class ClassA {
+//     private:
+//         int numA;
+
+//         // friend class declaration
+//         friend class ClassB;
+
+//     public:
+//         // constructor to initialize numA to 12
+//         ClassA() : numA(12) {}
+// };
+
+// class ClassB {
+//     private:
+//         int numB;
+
+//     public:
+//         // constructor to initialize numB to 1
+//         ClassB() : numB(1) {}
+    
+//     // member function to add numA
+//     // from ClassA and numB from ClassB
+//     int add() {
+//         ClassA objectA;
+//         return objectA.numA + numB;
+//     }
+// };
+
+// int main() {
+//     ClassB objectB;
+//     cout << "Sum: " << objectB.add();
+//     return 0;
+// }
+
+
+// class Distance {
+//   private:
+//       int meter;
+      
+//       // friend function
+//       friend int addFive(Distance);
+
+//   public:
+//       Distance() : meter(0) {}
+      
+// };
+
+// // friend function definition
+// int addFive(Distance d) {
+
+//   //accessing private members from the friend function
+//   d.meter += 5;
+//   return d.meter;
+// }
+
+// int main() {
+//   Distance D;
+//   cout << "Distance: " << addFive(D);
+//   return 0;
+// }
+
+
+// encapsulation
+// class Rectangle{
+//   private : int length; int breadth;
+
+//   public :
+//   void setLength(int len){
+//     length = len;
+//   }
+//   void setBreadth(int brth){
+//     breadth = brth;
+//   }
+
+//   int getLength(){
+//     return length;
+//   }
+
+//   int getBreadth(){
+//     return breadth;
+//   }
+
+//   int getArea(){
+//     return length * breadth;
+//   }
+// };
+
+// int main(){
+//   Rectangle rec1;
+
+//   rec1.setLength(7);
+//   cout<<rec1.getLength()<<endl;
+//   rec1.setBreadth(3);
+//   cout<<rec1.getBreadth()<<endl;
+//   cout<<rec1.getArea()<<endl;
+//   return 0;
+// }
 
 
 // // protected datatype
